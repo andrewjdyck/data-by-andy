@@ -1,0 +1,31 @@
+---
+title: "Reindeer-habitat-map"
+format: html
+editor: visual
+---
+
+# The home of Reindeer in Canada
+
+Rudolph the red-nosed Reindeer became a part of Christmas holiday lore with an appearance in a booklet written by Robert L. May for holiday booklets to be distributed to customers of the Montgomery Ward department store in Chicago. Now, what I don’t know about reindeer could fill volumes, including the fact that reindeer and caribou are indeed refer to the same species. That said, I’m certain that with Rudolph hitting 85 years since his introduction, Santa might need to start looking for a more youthful lead for his team. In order to help out our friend Kris Kringle, I embarked on a journey to find the habitat in Canada where he’d be most likely to find a replacement. 
+
+I started my search for caribou in the most logical place – the Government of Canada Open Data Portal. I found 63 provincial records and 25 federal records to choose from. In order to get a national view, I narrowed my search to only federal records and further filtered down the list to only those records that would have spatial data including GDB, CSV, SHP, and XML. I found [this dataset concerning the range of species at risk in Canada](https://open.canada.ca/data/en/dataset/c3d1771f-fa10-4a09-ba6e-dece0ceb5f37?_gl=1*eggf0w*_ga*MTg1NjEwNjkzNy4xNzI4Njc4OTUy*_ga_S9JG8CZVYZ*MTczNDMyMjkzMy4xNi4xLjE3MzQzMjMwNTIuMy4wLjA.) that includes the habitat range of Reindeer (Caribou) in Canada. 
+
+The format of this dataset is in GDB and I used the {sf} package in R to quickly read this dataset before doing some further analysis. I honestly can’t say enough good things about the {sf} package for R. Like geopandas for python, this package not only handles the complexity of reading/writing geographic datasets, but it also makes geographic transformations and calculations so easy that one can really focus on the analysis with needing to get too deep into the details or complexity. The dataset was fairly clean and the only thing it needed in order to make a nice looking map was a base map of Canada’s boundaries in the background and I grabbed that quickly using the {rnaturalearth} package for R and this is the result.
+
+\
+
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcRs4v95Lq_JPJx0pR1DUOu2txNGgrRm5e10dB7Vl8EiTiO6el4qBB4UCFiUKp_Q_LJsXngrUPt1YfZBQudW50b0PLj7XwYaYaBnqTWG5aDpY6s9_mY2D6UQd8FRUXsxnWa6Xir?key=CRnKSx3gx8XzJoHC70ZShHLO)
+
+I calculated the total area that reindeer (caribou) range covered and compared that to the total area of Canada in order to make a catchy title for the map that highlights that over 80% of Canada’s landmass is considered territory for Santa’s sleigh team. This is great news for Santa as he shouldn’t have too much trouble finding more reindeer in Canada.
+
+Out of curiosity, I wanted to know which province in Canada would have the largest share of it’s area covered by reindeer habitat. Nova Scotia, New Brunswick, and Prince Edward Island look to be out of the running from the start, but for the other provinces, I’d need to calculate the intersection of each province and the reindeer ranges first and then do the calculation of the percent of each province covered by reindeer habitat. This analysis produced the following bar chart showing us that at 56.7%, Manitoba has the largest share of its territory covered by reindeer habitat.
+
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdWduIiPXZ2XgrAAt2PsmXGP1m_ZCIBGKuNNarwcl6DKZ1zx_-tztb6054ysSANwYNl0EcqU2cRpjuW89uTeG0Q2wxcJqJwGDDCAJhNAO3ACWAhOEJGKwCqy8i46NisVN-RC6AwDA?key=CRnKSx3gx8XzJoHC70ZShHLO)
+
+Bottom line: 
+
+-   I continue to find the combination of the {sf} and {ggplot2} package in R to be great to quick spatial analysis and plotting. I’d love to try doing this analysis using geopandas at some point.
+
+-   The range of Reindeer (Caribou) in Canada is absolutely huge. I’d love to learn and understand more about the species and populations in Canada and how this range does or does not overlap with Canada’s human population.
+
+Check out and repeat this analysis by [following along with code in the GitHub repository](https://github.com/andrewjdyck/reindeer-data).
